@@ -7,3 +7,4 @@ const MovieContext = () => {
 }
 
 export default MovieContext
+
