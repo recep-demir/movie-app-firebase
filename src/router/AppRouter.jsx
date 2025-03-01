@@ -1,20 +1,16 @@
 import React from 'react'
-import { BrowserRouter, Routes } from 'react-router-dom'
+import {Routes } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 
 const AppRouter = () => {
   return (
 
     <div>
-
+      <Navbar/>
       <Routes>
-        <Navbar/>
-      
-      
-      
-      
-      
-      
+        
+
+
       </Routes>
 
 
