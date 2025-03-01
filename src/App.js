@@ -1,6 +1,4 @@
 import React from "react";
-
-import Register from "./pages/Register";
 import AuthContext from "./context/AuthContext";
 import MovieContext from "./context/MovieContext";
 import AppRouter from "./router/AppRouter";
@@ -15,9 +13,6 @@ const App = () => {
         <MovieContext>
           <AppRouter/>
           <ToastContainer/>
-
-
-
         </MovieContext>
       </AuthContext>
      
