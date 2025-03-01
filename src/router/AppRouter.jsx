@@ -8,8 +8,7 @@ const AppRouter = () => {
     <div>
       <Navbar/>
       <Routes>
-        
-
+      
 
       </Routes>
 
