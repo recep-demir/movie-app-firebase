@@ -14,7 +14,6 @@ import { AuthContextt } from "../context/AuthContext";
 export default function Navbar() {
   const { cikis, currentUser } = useContext(AuthContextt);
 
-  //tailwindui.com/components/preview adresinden navbar aldık ve navigation, mobile menu button, open, Disclosure.Panel sildik
   return (
     <>
       <Disclosure
@@ -28,10 +27,8 @@ export default function Navbar() {
             </Link>
 
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              {/* kullanıcı giriş yaptıysa displayName ekranda görünsün */}
               <h5 className="mr-2 capitalize ">{currentUser?.displayName}</h5>
 
-              {/* Profile dropdown */}
               <Menu as="div" className="relative">
                 <div>
                   <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">

@@ -1,11 +1,21 @@
 import React from "react";
 
 import Register from "./pages/Register";
+import AuthContext from "./context/AuthContext";
+import MovieContext from "./context/MovieContext";
 
 const App = () => {
   return (
     <div className="dark:bg-[#23242a] min-h-screen">
-     <Register/>
+
+      <AuthContext>
+        <MovieContext>
+          
+
+
+        </MovieContext>
+      </AuthContext>
+     
     </div>
   );
 };
