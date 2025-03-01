@@ -1,6 +1,7 @@
 import React from 'react'
-import {Routes } from 'react-router-dom'
+import {Route, Routes } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Main from '../pages/Main'
 
 const AppRouter = () => {
   return (
@@ -8,6 +9,7 @@ const AppRouter = () => {
     <div>
       <Navbar/>
       <Routes>
+        <Route path ="/" element={<Main/>}/>
       
 
       </Routes>
