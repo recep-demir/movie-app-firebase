@@ -1,17 +1,19 @@
-import React, { createContext, useEffect, useState } from "react";
-import axios from "axios";
-export const MovieContextt = createContext();
+import axios from 'axios';
+import React, { Children, createContext, useEffect, useState } from 'react'
 
-const MovieContext = ({ children }) => {
+
+const MovieContextt = createContext()
+
+const MovieContext = ({children}) => {
   const [filmler, setFilmler] = useState([]);
   const [loading, setLoad] = useState(false);
-
+  
   const API_KEY = process.env.REACT_APP_TMDB_KEY;
-  const BASE_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
-
-  const getirMovies = (API) => {
-    setLoad(true);
-
+  const BASE_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`; 
+  
+  
+  const getirMovies = (API) =>{
+    setLoad(true)
     axios
       .get(API)
       .then((res) => setFilmler(res.data.results))
@@ -23,10 +25,12 @@ const MovieContext = ({ children }) => {
   }, []);
 
   return (
-    <MovieContextt.Provider value={{ filmler, getirMovies,loading }}>
+    <MovieContext.Provider 
+    value={{filmler, getirMovies,loading}}
+    >
       {children}
-    </MovieContextt.Provider>
-  );
-};
+    </MovieContext.Provider>
+  )
+}
 
-export default MovieContext;
+export default MovieContext
