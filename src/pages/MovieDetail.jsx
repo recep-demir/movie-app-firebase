@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import axios from "axios"
 
-
 const MovieDetail = () => {
   const{id}=useParams()
   const[detay,setDetay]=useState("")
@@ -15,7 +14,6 @@ useEffect(()=>{
 },[])
 
    
-
   return (
     <div className="md:container px-10 mx-auto py-5">
       <h1 className="text-center dark:text-white text-3xl">{detay.title}</h1>
