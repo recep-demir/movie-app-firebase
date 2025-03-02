@@ -10,10 +10,12 @@ import { Link } from "react-router-dom";
 import avatar from "../assets/icons/avatar.png";
 import { useContext } from "react";
 import { AuthContextt } from "../context/AuthContext";
+import { MovieContextt } from "../context/MovieContext";
 
 
 export default function Navbar() {
   const { cikis, currentUser } = useContext(AuthContextt);
+  const {resetMovies} = useContext(MovieContextt)
 
   return (
     <>
@@ -23,7 +25,7 @@ export default function Navbar() {
       >
         <div className="mx-auto  px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
-            <Link className="pr-2 text-2xl font-semibold"  to="/">
+            <Link className="pr-2 text-2xl font-semibold" onClick={resetMovies} to="/">
               Movie App
             </Link>
 

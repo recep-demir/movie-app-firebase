@@ -4,24 +4,16 @@ import MovieCard from "../components/MovieCard";
 
 const API_KEY = process.env.REACT_APP_TMDB_KEY;
 const Main = () => {
-  const { filmler,getirMovies,loading } = useContext(MovieContextt);
+  const { filmler,getirMovies,loading,input,setInput } = useContext(MovieContextt);
 
-const[input,setInput]=useState("")
 
 const handleSubmit=(e)=>{
-
   e.preventDefault()
 getirMovies(
   `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${input}`
 );
 
 }
-
-const resetMovies = () =>{
-  setInput("")
-  getirMovies(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}`)
-}
-
 
   return (
     <div>

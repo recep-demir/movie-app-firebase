@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const MovieCard = ({id,title,overview,poster_path,vote_average}) => {
   
-  const {currentUser}=useContext(AuthContextt)
+const {currentUser}=useContext(AuthContextt)
 
 const navigate=useNavigate()
 
@@ -14,7 +14,7 @@ const navigate=useNavigate()
       className="movie"
       id="container"
     >
-      {/* img için base adrese endpoint olaraka dizideki poster_path eklenecek */}
+
       <img
         loading="lazy"
         src={`https://image.tmdb.org/t/p/w1280${poster_path}`}
@@ -23,7 +23,6 @@ const navigate=useNavigate()
 
       <div className="flex align-baseline justify-between p-1 text-white">
         <h5> {title}</h5>
-        {/* kullanıcı login, register yada google ile giriş yaptıysa, AuthContext te currentUser oluşuyor, giriş yapıldıysa vote_average yi görebilsin */}
         {currentUser && (
           <span
             className={`tag ${

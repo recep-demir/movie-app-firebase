@@ -6,6 +6,7 @@ export const MovieContextt = createContext()
 const MovieContext = ({children}) => {
   const [filmler, setFilmler] = useState([]);
   const [loading, setLoad] = useState(false);
+  const [input,setInput] = useState("")
   
   const API_KEY = process.env.REACT_APP_TMDB_KEY;
   const BASE_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`; 
@@ -23,9 +24,13 @@ const MovieContext = ({children}) => {
     getirMovies(BASE_URL);
   }, []);
 
+  const resetMovies = (API) =>{
+    setInput("")
+    getirMovies(BASE_URL)
+  }
   return (
     <MovieContextt.Provider 
-    value={{filmler, getirMovies,loading}}
+    value={{filmler, getirMovies,loading,resetMovies,input,setInput}}
     >
       {children}
     </MovieContextt.Provider>
