@@ -1,8 +1,7 @@
 import axios from 'axios';
-import React, { Children, createContext, useEffect, useState } from 'react'
+import React, {createContext, useEffect, useState } from 'react'
 
-
-const MovieContextt = createContext()
+export const MovieContextt = createContext()
 
 const MovieContext = ({children}) => {
   const [filmler, setFilmler] = useState([]);
@@ -25,11 +24,11 @@ const MovieContext = ({children}) => {
   }, []);
 
   return (
-    <MovieContext.Provider 
+    <MovieContextt.Provider 
     value={{filmler, getirMovies,loading}}
     >
       {children}
-    </MovieContext.Provider>
+    </MovieContextt.Provider>
   )
 }
 
