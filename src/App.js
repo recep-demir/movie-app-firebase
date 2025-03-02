@@ -1,20 +1,11 @@
 import React from "react";
-import AuthContext from "./context/AuthContext";
-import AppRouter from "./router/AppRouter";
-import { ToastContainer } from "react-toastify";
 
+import Register from "./pages/Register";
 
 const App = () => {
   return (
     <div className="dark:bg-[#23242a] min-h-screen">
-
-      <AuthContext>
-        
-          <AppRouter/>
-          <ToastContainer/>
-        
-      </AuthContext>
-     
+     <Register/>
     </div>
   );
 };
