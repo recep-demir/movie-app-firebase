@@ -7,20 +7,28 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import React, { createContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { createContext, useEffect, useState } from "react";
+import { auth } from "../auth/firebase";
+import { toastError, toastSuccess } from "../helpers/ToastNotify";
+import { useNavigate } from "react-router-dom";
 
+export const AuthContextt = createContext();
 
-export const Authcontextt = createContext();
-
-const AuthContext = ({children}) => {
+const AuthContext = ({ children }) => {
   const navigate = useNavigate();
-  const [currentUser,setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState();
 
-  const createUser = async (email, password, displayName) =>{
+  useEffect(() => {
+    userTakip();
+  }, []);
+
+  
+  const createUser = async (email, password, displayName) => {
     try {
-      await createUserWithEmailAndPassword(auth, email, password)
+      await createUserWithEmailAndPassword(auth, email, password);
+
       toastSuccess("register işlemi başarılı");
+
       navigate("/");
 
       await updateProfile(auth.currentUser, {
@@ -31,6 +39,18 @@ const AuthContext = ({children}) => {
     }
   };
 
+  //!login
+  const signIn = async (email, password) => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+
+      toastSuccess("login işlemi başarılı");
+
+      navigate("/");
+    } catch (error) {
+      toastError(error.message);
+    }
+  };
 
   const signInGoogle = () => {
     const provider = new GoogleAuthProvider();
@@ -46,19 +66,34 @@ const AuthContext = ({children}) => {
       });
   };
 
+  const cikis = () => {
+    signOut(auth);
+    toastSuccess("logout başarılı");
+  };
 
+  const userTakip = () => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { email, displayName, photoURL } = user;
 
-
+        setCurrentUser({
+          email: email,
+          displayName: displayName,
+          photoURL: photoURL,
+        });
+      } else {
+        setCurrentUser(false);
+      }
+    });
+  };
 
   return (
-    <Authcontextt.Provider
-    value = {{currentUser,createUser,signInGoogle}}
+    <AuthContextt.Provider
+      value={{ createUser, signIn, signInGoogle, cikis, currentUser }}
     >
-
       {children}
-    </Authcontextt.Provider>
-    
-  )
-}
+    </AuthContextt.Provider>
+  );
+};
 
-export default AuthContext
+export default AuthContext;
