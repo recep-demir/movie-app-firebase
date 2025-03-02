@@ -3,6 +3,13 @@
 ## Description
 The Movie App is a React-based web application that allows users to explore and discover movies. Users can search for movies, view details, and manage authentication using Firebase.
 
+# Netflix App
+[Live Demo](https://netlix-app-e77933.netlify.app/)
+## Screenshots
+
+![App Screenshot](./public/movie.gif)
+
+
 ## Features
 - User authentication with Firebase (Email/Password & Google Sign-In)
 - Browse popular movies using The Movie Database (TMDB) API
