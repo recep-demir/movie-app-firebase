@@ -3,8 +3,8 @@ import GoogleIcon from "../assets/icons/GoogleIcon";
 import { AuthContextt } from "../context/AuthContext";
 
 const Register = () => {
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
+const [firstName, setFirstName] = useState();
+const [lastName, setLastName] = useState();
 const [email, setEmail] = useState();
 const [password, setPassword] = useState();
 
