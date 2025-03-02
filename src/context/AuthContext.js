@@ -18,14 +18,10 @@ const AuthContext = ({ children }) => {
   const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState();
 
-  //!bu sayfaya ister login ister register ister google için gelin, sadece bir seferliğine user kontrolü yapan fonksiyonu çalıştır
   useEffect(() => {
     userTakip();
   }, []);
 
-  //!register
-  //!register için (sitede zincir yapılı fetch işlemi var biz burada async await i tercih ettik)
-  // https://firebase.google.com/docs/auth/web/start?hl=tr
   const createUser = async (email, password, displayName) => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
@@ -34,7 +30,7 @@ const AuthContext = ({ children }) => {
 
       navigate("/");
 
-      //? USERTAKİPTEN SONRA -----kullanıcı profilini güncellemek için kullanılan firebase metodu, login logout da userTakip sayesinde güncelleniyor ama register da isim güncellemesi yok, o da bu şekilde oluyor.alttakini yazmazsam (register ile girdiğimde) navbarda displayName i göremem. alttakini yazmazsam sadece google ile girersem görürüm
+    
       await updateProfile(auth.currentUser, {
         displayName: displayName,
       });
@@ -43,7 +39,6 @@ const AuthContext = ({ children }) => {
     }
   };
 
-  //!login
   const signIn = async (email, password) => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
@@ -57,10 +52,8 @@ const AuthContext = ({ children }) => {
   };
 
   const signInGoogle = () => {
-    //?google hesaplarına ulaşmak için firebase metodu
     const provider = new GoogleAuthProvider();
 
-    //?açılır pencere ile giriş yapılması için firebase metodu
     signInWithPopup(auth, provider)
       .then((result) => {
         toastSuccess("google ile giriş  başarılı");
