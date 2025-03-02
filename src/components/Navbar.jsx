@@ -11,8 +11,10 @@ import avatar from "../assets/icons/avatar.png";
 import { useContext } from "react";
 import { AuthContextt } from "../context/AuthContext";
 
+
 export default function Navbar() {
   const { cikis, currentUser } = useContext(AuthContextt);
+
   return (
     <>
       <Disclosure
@@ -21,7 +23,7 @@ export default function Navbar() {
       >
         <div className="mx-auto  px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
-            <Link className="pr-2 text-2xl font-semibold" to="/">
+            <Link className="pr-2 text-2xl font-semibold"  to="/">
               Movie App
             </Link>
 
