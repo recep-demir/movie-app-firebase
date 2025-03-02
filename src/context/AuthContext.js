@@ -32,12 +32,27 @@ const AuthContext = ({children}) => {
   };
 
 
+  const signInGoogle = () => {
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        toastSuccess("google ile giriş  başarılı");
+
+        navigate("/");
+      })
+      .catch((error) => {
+        toastError("google ile giriş hatalı");
+      });
+  };
+
+
 
 
 
   return (
     <Authcontextt.Provider
-    value = {{currentUser,createUser}}
+    value = {{currentUser,createUser,signInGoogle}}
     >
 
       {children}
