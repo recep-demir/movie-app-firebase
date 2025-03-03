@@ -1,5 +1,5 @@
 # Movie App
-[Live Demo](https://netlix-app-e77933.netlify.app/)
+[Live Demo](https://movie-app-reacct.netlify.app/)
 ## Screenshots
 
 ![App Screenshot](./public/movie.gif)
@@ -84,16 +84,11 @@ Movie App (folder)
 - Click on a movie to view details.
 - Logout when finished.
 
-## Demo
-[Live Demo](https://your-live-demo-link.com)
-
-## Screenshots
-![Movie App Screenshot](screenshot.png)
 
 ## License
 This project is licensed under the MIT License.
 
 ---
 
-**Happy Coding! 🚀**
+**Happy Coding!**
 
