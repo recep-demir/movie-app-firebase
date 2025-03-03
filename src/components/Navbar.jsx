@@ -12,6 +12,7 @@ import { useContext } from "react";
 import { AuthContextt } from "../context/AuthContext";
 import { MovieContextt } from "../context/MovieContext";
 import { WatchlistContextt } from "../context/WatchlistContext";
+import QueueIcon from '@mui/icons-material/Queue';
 
 
 export default function Navbar() {
@@ -35,7 +36,7 @@ export default function Navbar() {
             <div className="flex items-center space-x-4">
         {currentUser && (
           <Link to="/watchlist" className="flex items-center space-x-1 text-white">
-            <span className="text-lg">🔖 Watchlist</span>
+            <span className="text-lg"><QueueIcon/> Watchlist</span>
             <span className="bg-yellow-400 text-black px-2 py-1 rounded text-sm">
               {watchlist.length}
             </span>

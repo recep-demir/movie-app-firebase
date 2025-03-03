@@ -22,7 +22,7 @@ signIn(email,password)
       <div className={`form-container mt-[5vh] w-[380px] h-[580px]`}>
         <form onSubmit={handleSubmit}>
           <h2 className="text-red-main text-2xl font-[500] text-center tracking-[0.1em] mb-3">
-            Sign Up
+            Sign In
           </h2>
         
         

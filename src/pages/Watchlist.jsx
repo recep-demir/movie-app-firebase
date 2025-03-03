@@ -3,11 +3,11 @@ import {WatchlistContextt } from "../context/WatchlistContext";
 import MovieCard from "../components/MovieCard";
 
 const Watchlist = () => {
-  const { watchlist, removeFromWatchlist } = useContext(WatchlistContextt);
+  const { watchlist } = useContext(WatchlistContextt);
 
   return (
     <div>
-      <h1 className="text-center text-2xl p-4">My Watchlist</h1>
+      <h1 className="text-center text-white text-3xl p-2 mb-3">My Watchlist</h1>
       <div className="flex flex-wrap justify-center">
         {watchlist.length > 0 ? (
           watchlist.map((movie) => (
@@ -17,7 +17,7 @@ const Watchlist = () => {
             </div>
           ))
         ) : (
-          <p className="text-center">No movies in watchlist</p>
+          <p className="text-center text-white mt-40">No movies in watchlist</p>
         )}
       </div>
     </div>
