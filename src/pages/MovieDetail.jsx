@@ -27,7 +27,7 @@ useEffect(()=>{
           />
           <div className="p-6 flex flex-col justify-between">
             <div>
-              <h5 className=" text-white font-bold text-xl font-medium mb-2">
+              <h5 className=" text-white font-bold text-xl  mb-2">
                 Overview
               </h5>
               <p className="text-black text-base mb-4">{detay.overview}</p>
