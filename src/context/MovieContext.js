@@ -22,7 +22,7 @@ const MovieContext = ({children}) => {
 
   useEffect(() => {
     getirMovies(BASE_URL);
-  }, []);
+  }, [BASE_URL]);
 
   const resetMovies = (API) =>{
     setInput("")
