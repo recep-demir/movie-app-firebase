@@ -1,25 +1,36 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { toastSuccess } from "../helpers/ToastNotify";
 
-export const WatchlistContext = createContext();
+export const WatchlistContextt = createContext();
 
-const WatchlistProvider = ({ children }) => {
-  const [watchlist, setWatchlist] = useState([]);
+const WatchlistContext = ({ children }) => {
+    const [watchlist, setWatchlist] = useState(() => {
+        const savedWatchlist = localStorage.getItem("watchlist");
+        return savedWatchlist ? JSON.parse(savedWatchlist) : [];
+      });
+
+
+      useEffect(() => {
+        localStorage.setItem("watchlist", JSON.stringify(watchlist));
+      }, [watchlist]);
 
   const addToWatchlist = (movie) => {
     if (!watchlist.some((item) => item.id === movie.id)) {
       setWatchlist([...watchlist, movie]);
+      toastSuccess("The movie has been added to Watchlist");
     }
   };
 
   const removeFromWatchlist = (id) => {
     setWatchlist(watchlist.filter((movie) => movie.id !== id));
+    toastSuccess("The movie has been removed from Watchlist")
   };
 
   return (
-    <WatchlistContext.Provider value={{ watchlist, addToWatchlist, removeFromWatchlist }}>
+    <WatchlistContextt.Provider value={{ watchlist, addToWatchlist, removeFromWatchlist }}>
       {children}
-    </WatchlistContext.Provider>
+    </WatchlistContextt.Provider>
   );
 };
 
-export default WatchlistProvider;
+export default WatchlistContext;

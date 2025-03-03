@@ -11,11 +11,13 @@ import avatar from "../assets/icons/avatar.png";
 import { useContext } from "react";
 import { AuthContextt } from "../context/AuthContext";
 import { MovieContextt } from "../context/MovieContext";
+import { WatchlistContextt } from "../context/WatchlistContext";
 
 
 export default function Navbar() {
   const { cikis, currentUser } = useContext(AuthContextt);
   const {resetMovies} = useContext(MovieContextt)
+  const {watchlist} = useContext(WatchlistContextt)
 
   return (
     <>
@@ -28,6 +30,19 @@ export default function Navbar() {
             <Link className="pr-2 text-2xl font-semibold" onClick={resetMovies} to="/">
               Movie App
             </Link>
+
+<div className="relative flex h-16 items-center justify-between">
+            <div className="flex items-center space-x-4">
+        {currentUser && (
+          <Link to="/watchlist" className="flex items-center space-x-1 text-white">
+            <span className="text-lg">🔖 Watchlist</span>
+            <span className="bg-yellow-400 text-black px-2 py-1 rounded text-sm">
+              {watchlist.length}
+            </span>
+          </Link>
+        )}
+
+      </div>
 
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               <h5 className="mr-2 capitalize ">{currentUser?.displayName}</h5>
@@ -77,6 +92,7 @@ export default function Navbar() {
                   </MenuItem>
                 </MenuItems>
               </Menu>
+            </div>
             </div>
           </div>
         </div>
