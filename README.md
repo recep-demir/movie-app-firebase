@@ -1,5 +1,5 @@
 # Movie App
-[Live Demo](https://movie-app-reacct.netlify.app/)
+[Live Demo](https://movie-app-firebase0.netlify.app/)
 ## Screenshots
 
 ![App Screenshot](./public/movie.gif)
