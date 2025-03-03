@@ -11,7 +11,7 @@ useEffect(()=>{
    axios
      .get(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`)
      .then((res) => setDetay(res.data));
-},[])
+},[API_KEY, id])
 
    
   return (
