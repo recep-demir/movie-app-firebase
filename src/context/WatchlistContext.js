@@ -4,7 +4,7 @@ import { toastSuccess } from "../helpers/ToastNotify";
 export const WatchlistContextt = createContext();
 
 const WatchlistContext = ({ children }) => {
-    const [watchlist, setWatchlist] = useState(() => {
+    const [watchlist, setWatchlist] = useState(() => { //lazy initialization
         const savedWatchlist = localStorage.getItem("watchlist");
         return savedWatchlist ? JSON.parse(savedWatchlist) : [];
       });

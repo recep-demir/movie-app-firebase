@@ -10,6 +10,8 @@ const [password, setPassword] = useState();
 
 const{createUser,signInGoogle}=useContext(AuthContextt)
 
+
+
 const handleSubmit=(e)=>{
   e.preventDefault()
   const displayName=`${firstName} ${lastName}`
